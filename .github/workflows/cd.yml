@@ -17,4 +17,4 @@ jobs:
                 echo "Deploy ambiente de ${{ secrets.ambiente }}.."
           - name: Curl deploy ambiente
             run: |
-                echo '${{ secrets.ambiente }}' }"
+                echo ${{ secrets.ambiente }}
