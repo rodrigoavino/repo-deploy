@@ -3,11 +3,6 @@ run-name: Deploy Fake ${{ github.run_number }}
 
 on:
   workflow_dispatch:
-     secrets:
-        ambiente:
-           description: 'Ambiente de entrega'
-           required: true
-        
 
  
 jobs:
