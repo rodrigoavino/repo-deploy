@@ -17,4 +17,4 @@ jobs:
                 echo "Deploy ambiente de ${{ secrets.AMBIENTE_ENTREGAR }}.."
           - name: Curl deploy ambiente
             run: |
-              curl -X POST https://webhook.site/9c39c68b-8be8-4d0d-a604-7e0dd05f3591 -d "{ ambiente: '${{ secrets.AMBIENTE_ENTREGAR }}' }"
+                echo '${{ secrets.AMBIENTE_ENTREGAR }}' }"
