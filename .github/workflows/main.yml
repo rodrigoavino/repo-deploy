@@ -1,1 +1,25 @@
-teste
+name: CI/CD Fake
+run-name: Deploy Fake ${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+
+ 
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build imagem docker
+        run: |
+          echo "Building Docker image..."
+      - name: Execucao de testes
+        run: |
+          echo "Running tests..."
+      - name: Publicando a release
+        run: |
+          echo "Publishing release..."       
+  CD:
+    needs: CI
+    uses: rodrigoavino/contextexamples/.github/workflows/cd.yml@main
+    secrets: 
+      ambiente: inherit

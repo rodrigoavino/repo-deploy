@@ -1,0 +1,19 @@
+name: Deploy Fake
+run-name: Deploy Fake ${{ github.run_number }}
+on:
+  workflow_call:
+    secrets:
+      ambiente:
+        required: true
+        description: "Ambiente onde vai ser feito o deploy"
+
+jobs:
+    Deploy-kubernetes:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Build imagem docker
+            run: |
+                echo "Deploy ambiente de ${{ secrets.AMBIENTE_ENTREGA }}.."
+          - name: Curl deploy ambiente
+            run: |
+              curl -X POST https://webhook.site/9c39c68b-8be8-4d0d-a604-7e0dd05f3591 -d "{ ambiente: '${{ secrets.AMBIENTE_ENTREGA }}' }"
