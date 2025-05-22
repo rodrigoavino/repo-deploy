@@ -22,4 +22,4 @@ jobs:
     needs: CI
     uses: rodrigoavino/repo-deploy/.github/workflows/cd.yml@main
     secrets: 
-      ambiente: ${{ secrets.AMBIENTE_ENTREGAR }}  # ou por inherit
+      ambiente: inherit
