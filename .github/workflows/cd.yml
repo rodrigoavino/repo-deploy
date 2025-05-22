@@ -1,12 +1,8 @@
-name: Deploy Fake
+name: Deploy Fake Secret
 run-name: Deploy Fake ${{ github.run_number }}
 on:
   workflow_call:
-    secrets:
-      ambiente:
-        required: true
-        description: 'Ambiente de entrega'
-    
+
 
 jobs:
     Deploy-kubernetes:
