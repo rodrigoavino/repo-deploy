@@ -20,6 +20,6 @@ jobs:
           echo "Publishing release..."       
   CD:
     needs: CI
-    uses: rodrigoavino/contextexamples/.github/workflows/cd.yml@main
+    uses: rodrigoavino/repo-deploy/.github/workflows/cd.yml@main
     secrets: 
       ambiente: inherit
