@@ -1,4 +1,4 @@
-name: CI/CD Fake
+name: CI/CD Fake Secret
 run-name: Deploy Fake ${{ github.run_number }}
 
 on:
