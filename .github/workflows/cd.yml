@@ -14,7 +14,7 @@ jobs:
         steps:
           - name: Build imagem docker
             run: |
-                echo "Deploy ambiente de ${{ secrets.AMBIENTE_ENTREGAR }}.."
+                echo "Deploy ambiente de ${{ secrets.ambiente }}.."
           - name: Curl deploy ambiente
             run: |
-                echo '${{ secrets.AMBIENTE_ENTREGAR }}' }"
+                echo '${{ secrets.ambiente }}' }"
