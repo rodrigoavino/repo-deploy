@@ -6,14 +6,18 @@ on:
 jobs:
     Deploy-fake:
         runs-on: ubuntu-latest
-        environment: homologacao
+        environment: 
+          name: homologacao
+          url: "https://homologacao.example.com"
         steps:
           - name: fake de deploy ambiente
             run: |
                 echo "Deploy ambiente de ${{ vars.AMBIENTE_DEPLOY }}.."
     teste-fake:
        runs-on: ubuntu-latest
-       environment: homologacao
+       environment: 
+         name: homologacao
+         url: "https://homologacao.example.com"
        needs: Deploy-fake
        steps:
           - name: fake teste ambiente
@@ -21,7 +25,9 @@ jobs:
                 echo "Teste ambiente de ${{ vars.AMBIENTE_DEPLOY }}.."          
     deploy-fake-producao:
        runs-on: ubuntu-latest
-       environment: producao
+       environment: 
+          name: producao
+          url: "https://producao.example.com"
        needs: teste-fake
        steps:
           - name: fake deploy ambiente
