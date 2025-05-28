@@ -2,23 +2,28 @@ name: CD FAKE
 run-name: Deploy Fake ${{ github.run_number }}
 on:
   workflow_dispatch:
-      inputs:
-        AMBIENTE_DEPLOY:
-          description: 'Ambiente de deploy'
-          required: true
-          type: choice
-          default: homologacao
-          options:
-            - homologacao
-            - producao
-
 
 jobs:
     Deploy-fake:
         runs-on: ubuntu-latest
-        environment: ${{ inputs.AMBIENTE_DEPLOY }}
+        environment: homologacao
         steps:
-          - name: fake d edeploy ambiente
+          - name: fake de deploy ambiente
             run: |
                 echo "Deploy ambiente de ${{ vars.AMBIENTE_DEPLOY }}.."
-          
+    teste-fake:
+       runs-on: ubuntu-latest
+       environment: homologacao
+       needs: Deploy-fake
+       steps:
+          - name: fake teste ambiente
+            run: |
+                echo "Teste ambiente de ${{ vars.AMBIENTE_DEPLOY }}.."          
+    deploy-fake-producao:
+       runs-on: ubuntu-latest
+       environment: producao
+       needs: teste-fake
+       steps:
+          - name: fake deploy ambiente
+            run: |
+                echo "Deploy ambiente de ${{ vars.AMBIENTE_DEPLOY }}.."
